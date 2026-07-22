@@ -28,3 +28,6 @@ SessionLocal = sessionmaker(
     autocommit=False,
     future=True,
 )
+def create_database() -> None:
+    """Create all database tables."""
+    Base.metadata.create_all(bind=engine)

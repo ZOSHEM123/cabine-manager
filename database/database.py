@@ -4,6 +4,7 @@ Database configuration.
 This module initializes the SQLAlchemy engine, session factory,
 and declarative base for the entire application.
 """
+import models
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker

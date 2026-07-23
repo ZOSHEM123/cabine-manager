@@ -1,23 +1,24 @@
 import flet as ft
 
+from views.dashboard.dashboard_view import DashboardView
+
 
 APP_TITLE = "Cabine Management"
 
 
-def main(page: ft.Page) -> None:
+def main(page: ft.Page):
+
     page.title = APP_TITLE
-    page.window.width = 1200
-    page.window.height = 750
-    page.window.center()
+    page.padding = 20
+
+    dashboard = DashboardView(page)
 
     page.add(
-        ft.Text(
-            "Cabine Management",
-            size=30,
-            weight=ft.FontWeight.BOLD,
-        )
+        dashboard.build()
     )
 
 
 if __name__ == "__main__":
-    ft.app(target=main)
+    ft.app(
+        target=main
+    )

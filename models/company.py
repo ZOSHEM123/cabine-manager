@@ -8,6 +8,7 @@ from sqlalchemy import DateTime, Float, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column
 
 from database.database import Base
+from sqlalchemy.orm import relationship
 
 
 class Company(Base):
@@ -50,3 +51,9 @@ class Company(Base):
         default=datetime.utcnow,
         onupdate=datetime.utcnow,
     )
+    operators = relationship(
+    "Operator",
+    back_populates="company",
+    cascade="all, delete-orphan",
+    )
+    
